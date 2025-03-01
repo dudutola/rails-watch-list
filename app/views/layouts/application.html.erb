@@ -11,6 +11,24 @@
   </head>
 
   <body>
-    <%= yield %>
+        <nav class="d-flex justify-content-between navbar navbar-expand-lg  navbar-light bg-light px-4">
+      <%= image_tag "https://cdn-icons-png.flaticon.com/512/1964/1964625.png", alt: "Logo", width: 40, height: 50 %>
+      <div>
+        <%= link_to "My lists", class: "link text-decoration-none my-2 my-sm-0 ms-2" %>
+        <%= link_to "Add movie", new_list_path, class: "link text-decoration-none my-2 my-sm-0 ms-2" %>
+      </div>
+    </nav>
+
+    <% if request.path == lists_path %>
+      <div class="banner" style="background-image: url('https://images.impresa.pt/expresso/2021-01-13-Salas-de-cinema.jpg/original'); background-size: cover; background-position: center; height: 500px;">
+        <h1>Save any kind of movies</h1>
+        <p>Classic</p>
+      </div>
+    <% end %>
+
+
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
