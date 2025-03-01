@@ -1,5 +1,6 @@
 <%= simple_form_for(@list) do |f| %>
   <%= f.input :name %>
   <%= f.input :image, as: :file, label: "Choose an image" %>
+  <%= f.input :image_url, placeholder: "Add the image url" %>
   <%= f.submit %>
 <% end %>

@@ -1,4 +1,6 @@
 class List < ApplicationRecord
+  attr_accessor :image_url
+
   has_many :bookmarks, dependent: :destroy
   has_many :movies, through: :bookmarks
   has_one_attached :image

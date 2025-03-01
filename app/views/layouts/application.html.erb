@@ -11,13 +11,13 @@
   </head>
 
   <body>
-    <nav class="d-flex justify-content-between navbar navbar-expand-lg navbar-light bg-light px-4">
+    <nav class="d-flex justify-content-between navbar navbar-expand-lg navbar-light bg-black px-4">
       <%= link_to lists_path do  %>
         <%= image_tag "https://cdn-icons-png.flaticon.com/512/1964/1964625.png", alt: "Logo", width: 40, height: 50 %>
       <% end %>
       <div>
-        <%= link_to "My lists", class: "link text-decoration-none my-2 my-sm-0 ms-2" %>
-        <%= link_to "New list", new_list_path, class: "link text-decoration-none my-2 my-sm-0 ms-2" %>
+        <%= link_to "My lists", lists_path, class: "link text-decoration-none my-2 my-sm-0 ms-2 btn btn-outline-dark" %>
+        <%= link_to "New list", new_list_path, class: "link text-light btn btn-outline-dark text-decoration-none my-2 my-sm-0 ms-2" %>
       </div>
     </nav>
 
