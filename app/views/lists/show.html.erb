@@ -1,3 +1,22 @@
 <h1><%= @list.name %></h1>
 
+<div>
+  <% if @bookmarks.empty? %>
+    <p>Nothing to see here.</p>
+  <% else %>
+    <% @bookmarks.each do |bookmark| %>
+      <div>
+        <img src="<%= bookmark.movie.poster_url %>" alt="<%= bookmark.movie.title %>">
+
+        <%= bookmark.movie.title %>
+        <%= bookmark.movie.overview %>
+        <%= bookmark.movie.rating %>
+        <%= bookmark.comment %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+
+<%= link_to "Add movie", new_list_bookmark_path(@list) %> |
 <%= link_to "Back", lists_path %>
