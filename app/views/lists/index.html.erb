@@ -10,7 +10,7 @@
   <% else %>
     <% @lists.each do |list| %>
       <%= link_to list_path(list) do %>
-        <div class="card-list" style="background-image: url('https://plus.unsplash.com/premium_photo-1668800128890-bc8d2bf9af7e?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Z3JleSUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D');">
+        <div class="card-list" style="background-image: url('<%= list.image.attached? ? url_for(list.image) : 'https://example.com/default-image.jpg' %>'); background-size: cover; background-position: center;">
           <h3><%= list.name %></h3>
         </div>
       <% end %>

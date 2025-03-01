@@ -11,23 +11,36 @@
   </head>
 
   <body>
-    <nav class="d-flex justify-content-between navbar navbar-expand-lg  navbar-light bg-light px-4">
-      <%= image_tag "https://cdn-icons-png.flaticon.com/512/1964/1964625.png", alt: "Logo", width: 40, height: 50 %>
+    <nav class="d-flex justify-content-between navbar navbar-expand-lg navbar-light bg-light px-4">
+      <%= link_to lists_path do  %>
+        <%= image_tag "https://cdn-icons-png.flaticon.com/512/1964/1964625.png", alt: "Logo", width: 40, height: 50 %>
+      <% end %>
       <div>
         <%= link_to "My lists", class: "link text-decoration-none my-2 my-sm-0 ms-2" %>
         <%= link_to "New list", new_list_path, class: "link text-decoration-none my-2 my-sm-0 ms-2" %>
       </div>
     </nav>
 
-    <% if request.path == lists_path %>
+    <% if controller.controller_name == 'lists' && action_name == 'index' %>
+      <!-- Index Banner -->
       <div class="banner" style="background-image: url('https://images.impresa.pt/expresso/2021-01-13-Salas-de-cinema.jpg/original'); background-size: cover; background-position: center; height: 500px;">
         <h1>Save any kind of movies</h1>
         <p>Classic</p>
       </div>
+    <% elsif controller.controller_name == 'lists' && action_name == 'show' %>
+      <!-- Show Banner -->
+      <% if @list.image.attached? %>
+        <div class="card-list" style="background-image: url('<%= url_for(@list.image) %>'); background-size: cover; background-position: center; height: 500px;">
+          <h1><%= @list.name %></h1>
+        </div>
+      <% else %>
+        <div class="card-list" style="background-image: url('https://images.impresa.pt/expresso/2021-01-13-Salas-de-cinema.jpg/original'); background-size: cover; background-position: center; height: 500px;">
+          <h1><%= @list.name %></h1>
+        </div>
+      <% end %>
     <% end %>
 
-
-    <div class="container">
+    <div class="container mb-5">
       <%= yield %>
     </div>
   </body>
