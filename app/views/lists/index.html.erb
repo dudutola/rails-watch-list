@@ -1,11 +1,17 @@
-<div>
+<div class="title-btn d-flex justify-content-between align-items-end">
+  <h2>My Lists</h2>
+
+  <%= link_to "Create a movie list", new_list_path, class: "btn-primary" %>
+</div>
+
+<div class="cards">
   <% if @lists.empty? %>
     <p>Nothing to see here.</p>
   <% else %>
     <% @lists.each do |list| %>
-      <%= link_to list_path(list) do  %>
-        <div>
-          <%= list.name %>
+      <%= link_to list_path(list) do %>
+        <div class="card-list" style="background-image: url('https://plus.unsplash.com/premium_photo-1668800128890-bc8d2bf9af7e?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Z3JleSUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D');">
+          <h3><%= list.name %></h3>
         </div>
       <% end %>
     <% end %>
