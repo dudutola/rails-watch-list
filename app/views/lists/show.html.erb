@@ -12,6 +12,12 @@
         <%= bookmark.movie.overview %>
         <%= bookmark.movie.rating %>
         <%= bookmark.comment %>
+
+        <%= link_to "delete", bookmark_path(bookmark),
+          data: {turbo_method: :delete,
+          turbo_confirm: "Are you sure?"},
+          class: "text-danger text-decoration-none"
+        %>
       </div>
     <% end %>
   <% end %>
