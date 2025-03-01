@@ -1,0 +1,11 @@
+<div>
+  <% if @lists.empty? %>
+    <p>Nothing to see here.</p>
+  <% else %>
+    <% @lists.each do |list| %>
+      <div>
+        <%= list.name %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
