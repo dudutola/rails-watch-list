@@ -10,7 +10,7 @@
   <% else %>
     <% @lists.each do |list| %>
       <%= link_to list_path(list) do %>
-        <div class="card-list" style="background-image: url('<%= list.image.attached? ? cloudinary_url(list.image.key) : 'https://example.com/default-image.jpg' %>'); background-size: cover; background-position: center;">
+        <div class="card-list" style="background-image: url('<%= list.image.attached? ? cl_image_path(list.image.key) : 'https://example.com/default-image.jpg' %>'); background-size: cover; background-position: center;">
           <h3><%= list.name %></h3>
         </div>
       <% end %>

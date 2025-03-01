@@ -30,7 +30,7 @@
     <% elsif controller.controller_name == 'lists' && action_name == 'show' %>
       <!-- Show Banner -->
       <% if @list.image.attached? %>
-        <div class="card-list" style="background-image: url('<%= url_for(@list.image) %>'); background-size: cover; background-position: center; height: 500px;">
+        <div class="card-list" style="background-image: url('<%= cl_image_path(@list.image.key) %>'); background-size: cover; background-position: center; height: 500px;">
           <h1><%= @list.name %></h1>
         </div>
       <% else %>
